@@ -196,6 +196,13 @@ export type EnumLearningStyleFilter<$PrismaModel = never> = {
   not?: Prisma.NestedEnumLearningStyleFilter<$PrismaModel> | $Enums.LearningStyle
 }
 
+export type EnumLearningRhythmFilter<$PrismaModel = never> = {
+  equals?: $Enums.LearningRhythm | Prisma.EnumLearningRhythmFieldRefInput<$PrismaModel>
+  in?: $Enums.LearningRhythm[] | Prisma.ListEnumLearningRhythmFieldRefInput<$PrismaModel>
+  notIn?: $Enums.LearningRhythm[] | Prisma.ListEnumLearningRhythmFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumLearningRhythmFilter<$PrismaModel> | $Enums.LearningRhythm
+}
+
 export type EnumDifficultyFilter<$PrismaModel = never> = {
   equals?: $Enums.Difficulty | Prisma.EnumDifficultyFieldRefInput<$PrismaModel>
   in?: $Enums.Difficulty[] | Prisma.ListEnumDifficultyFieldRefInput<$PrismaModel>
@@ -211,6 +218,16 @@ export type EnumLearningStyleWithAggregatesFilter<$PrismaModel = never> = {
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumLearningStyleFilter<$PrismaModel>
   _max?: Prisma.NestedEnumLearningStyleFilter<$PrismaModel>
+}
+
+export type EnumLearningRhythmWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.LearningRhythm | Prisma.EnumLearningRhythmFieldRefInput<$PrismaModel>
+  in?: $Enums.LearningRhythm[] | Prisma.ListEnumLearningRhythmFieldRefInput<$PrismaModel>
+  notIn?: $Enums.LearningRhythm[] | Prisma.ListEnumLearningRhythmFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumLearningRhythmWithAggregatesFilter<$PrismaModel> | $Enums.LearningRhythm
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumLearningRhythmFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumLearningRhythmFilter<$PrismaModel>
 }
 
 export type EnumDifficultyWithAggregatesFilter<$PrismaModel = never> = {
@@ -724,6 +741,13 @@ export type NestedEnumLearningStyleFilter<$PrismaModel = never> = {
   not?: Prisma.NestedEnumLearningStyleFilter<$PrismaModel> | $Enums.LearningStyle
 }
 
+export type NestedEnumLearningRhythmFilter<$PrismaModel = never> = {
+  equals?: $Enums.LearningRhythm | Prisma.EnumLearningRhythmFieldRefInput<$PrismaModel>
+  in?: $Enums.LearningRhythm[] | Prisma.ListEnumLearningRhythmFieldRefInput<$PrismaModel>
+  notIn?: $Enums.LearningRhythm[] | Prisma.ListEnumLearningRhythmFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumLearningRhythmFilter<$PrismaModel> | $Enums.LearningRhythm
+}
+
 export type NestedEnumDifficultyFilter<$PrismaModel = never> = {
   equals?: $Enums.Difficulty | Prisma.EnumDifficultyFieldRefInput<$PrismaModel>
   in?: $Enums.Difficulty[] | Prisma.ListEnumDifficultyFieldRefInput<$PrismaModel>
@@ -739,6 +763,16 @@ export type NestedEnumLearningStyleWithAggregatesFilter<$PrismaModel = never> = 
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumLearningStyleFilter<$PrismaModel>
   _max?: Prisma.NestedEnumLearningStyleFilter<$PrismaModel>
+}
+
+export type NestedEnumLearningRhythmWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.LearningRhythm | Prisma.EnumLearningRhythmFieldRefInput<$PrismaModel>
+  in?: $Enums.LearningRhythm[] | Prisma.ListEnumLearningRhythmFieldRefInput<$PrismaModel>
+  notIn?: $Enums.LearningRhythm[] | Prisma.ListEnumLearningRhythmFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumLearningRhythmWithAggregatesFilter<$PrismaModel> | $Enums.LearningRhythm
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumLearningRhythmFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumLearningRhythmFilter<$PrismaModel>
 }
 
 export type NestedEnumDifficultyWithAggregatesFilter<$PrismaModel = never> = {
