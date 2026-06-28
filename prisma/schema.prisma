@@ -123,6 +123,12 @@ enum AiGenerationStatus {
   FAILED
 }
 
+enum LearningRhythm {
+  RELAX
+  NORMAL
+  INTENSIVE
+}
+
 model User {
   id            String    @id @default(cuid())
   name          String?
@@ -133,9 +139,10 @@ model User {
   username     String? @unique
   passwordHash String?
 
-  level            Int @default(1)
-  totalXp          Int @default(0)
-  dailyGoalMinutes Int @default(30)
+  level                 Int       @default(1)
+  totalXp               Int       @default(0)
+  dailyGoalMinutes      Int       @default(30)
+  onboardingCompletedAt DateTime?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -199,12 +206,13 @@ model UserProfile {
   id     String @id @default(cuid())
   userId String @unique
 
-  bio           String?
-  learningStyle LearningStyle @default(MIXED)
-  difficulty    Difficulty    @default(BEGINNER)
-  theme         String        @default("system")
-  language      String        @default("fr")
-  timezone      String        @default("Europe/Paris")
+  bio            String?
+  learningStyle  LearningStyle  @default(MIXED)
+  learningRhythm LearningRhythm @default(NORMAL)
+  difficulty     Difficulty     @default(BEGINNER)
+  theme          String         @default("system")
+  language       String         @default("fr")
+  timezone       String         @default("Europe/Paris")
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

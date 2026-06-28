@@ -1803,6 +1803,7 @@ export const UserScalarFieldEnum = {
   level: 'level',
   totalXp: 'totalXp',
   dailyGoalMinutes: 'dailyGoalMinutes',
+  onboardingCompletedAt: 'onboardingCompletedAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -1854,6 +1855,7 @@ export const UserProfileScalarFieldEnum = {
   userId: 'userId',
   bio: 'bio',
   learningStyle: 'learningStyle',
+  learningRhythm: 'learningRhythm',
   difficulty: 'difficulty',
   theme: 'theme',
   language: 'language',
@@ -2161,6 +2163,20 @@ export type EnumLearningStyleFieldRefInput<$PrismaModel> = FieldRefInputType<$Pr
  * Reference to a field of type 'LearningStyle[]'
  */
 export type ListEnumLearningStyleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'LearningStyle[]'>
+    
+
+
+/**
+ * Reference to a field of type 'LearningRhythm'
+ */
+export type EnumLearningRhythmFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'LearningRhythm'>
+    
+
+
+/**
+ * Reference to a field of type 'LearningRhythm[]'
+ */
+export type ListEnumLearningRhythmFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'LearningRhythm[]'>
     
 
 
