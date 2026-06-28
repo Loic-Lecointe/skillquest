@@ -1,13 +1,452 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Get a free hosted Postgres database in seconds: `npx create-db`
-
 generator client {
   provider = "prisma-client"
-  output   = "../app/generated/prisma"
+  output   = "../generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
+}
+
+enum LearningStyle {
+  READING
+  VIDEO
+  PRACTICE
+  QUIZ
+  MIXED
+}
+
+enum Difficulty {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+}
+
+enum SkillStatus {
+  ACTIVE
+  PAUSED
+  COMPLETED
+  ARCHIVED
+}
+
+enum PathStatus {
+  DRAFT
+  ACTIVE
+  COMPLETED
+  ARCHIVED
+}
+
+enum ModuleStatus {
+  LOCKED
+  AVAILABLE
+  IN_PROGRESS
+  COMPLETED
+  ARCHIVED
+}
+
+enum QuestType {
+  READING
+  VIDEO
+  QUIZ
+  EXERCISE
+  MINI_PROJECT
+  NOTE
+  REVIEW
+}
+
+enum QuestStatus {
+  TODO
+  IN_PROGRESS
+  COMPLETED
+  POSTPONED
+  ARCHIVED
+}
+
+enum ResourceType {
+  ARTICLE
+  VIDEO
+  BOOK
+  PODCAST
+  DOCUMENTATION
+  NOTE
+  GITHUB_PROJECT
+  OTHER
+}
+
+enum ResourceStatus {
+  SAVED
+  IN_PROGRESS
+  COMPLETED
+  ARCHIVED
+}
+
+enum BadgeRarity {
+  COMMON
+  RARE
+  EPIC
+  LEGENDARY
+}
+
+enum ActivityActionType {
+  QUEST_CREATED
+  QUEST_COMPLETED
+  MODULE_COMPLETED
+  PATH_COMPLETED
+  QUIZ_COMPLETED
+  RESOURCE_ADDED
+  BADGE_UNLOCKED
+  XP_EARNED
+}
+
+enum EntityType {
+  USER
+  SKILL
+  LEARNING_PATH
+  MODULE
+  QUEST
+  QUIZ
+  RESOURCE
+  BADGE
+}
+
+enum AiGenerationType {
+  PATH
+  QUESTS
+  QUIZ
+  RESOURCE_SUMMARY
+  CONCEPT_EXPLANATION
+}
+
+enum AiGenerationStatus {
+  DRAFT
+  ACCEPTED
+  REJECTED
+  FAILED
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+
+  username     String? @unique
+  passwordHash String?
+
+  level            Int @default(1)
+  totalXp          Int @default(0)
+  dailyGoalMinutes Int @default(30)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  accounts Account[]
+  sessions Session[]
+
+  profile       UserProfile?
+  skills        Skill[]
+  learningPaths LearningPath[]
+  quests        Quest[]
+  quizAttempts  QuizAttempt[]
+  resources     Resource[]
+  userBadges    UserBadge[]
+  activityLogs  ActivityLog[]
+  streak        Streak?
+  aiGenerations AiGeneration[]
+}
+
+model Account {
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([provider, providerAccountId])
+}
+
+model Session {
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@id([identifier, token])
+}
+
+model UserProfile {
+  id     String @id @default(cuid())
+  userId String @unique
+
+  bio           String?
+  learningStyle LearningStyle @default(MIXED)
+  difficulty    Difficulty    @default(BEGINNER)
+  theme         String        @default("system")
+  language      String        @default("fr")
+  timezone      String        @default("Europe/Paris")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Skill {
+  id     String @id @default(cuid())
+  userId String
+
+  title       String
+  description String?
+  category    String?
+  level       Difficulty  @default(BEGINNER)
+  goal        String?
+  status      SkillStatus @default(ACTIVE)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user          User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  learningPaths LearningPath[]
+  resources     Resource[]
+
+  @@index([userId])
+}
+
+model LearningPath {
+  id      String @id @default(cuid())
+  userId  String
+  skillId String
+
+  title         String
+  description   String?
+  difficulty    Difficulty @default(BEGINNER)
+  durationWeeks Int?
+  status        PathStatus @default(DRAFT)
+  progress      Int        @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  skill     Skill      @relation(fields: [skillId], references: [id], onDelete: Cascade)
+  modules   Module[]
+  resources Resource[]
+
+  @@index([userId])
+  @@index([skillId])
+}
+
+model Module {
+  id     String @id @default(cuid())
+  pathId String
+
+  title       String
+  description String?
+  position    Int
+  status      ModuleStatus @default(AVAILABLE)
+  progress    Int          @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  path   LearningPath @relation(fields: [pathId], references: [id], onDelete: Cascade)
+  quests Quest[]
+
+  @@index([pathId])
+}
+
+model Quest {
+  id       String @id @default(cuid())
+  moduleId String
+  userId   String
+
+  title       String
+  description String?
+  type        QuestType   @default(EXERCISE)
+  difficulty  Difficulty  @default(BEGINNER)
+  xpReward    Int         @default(20)
+  status      QuestStatus @default(TODO)
+  dueDate     DateTime?
+  completedAt DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  module Module @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  quiz   Quiz?
+
+  @@index([moduleId])
+  @@index([userId])
+}
+
+model Quiz {
+  id      String @id @default(cuid())
+  questId String @unique
+
+  title        String
+  description  String?
+  passingScore Int     @default(70)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  quest     Quest         @relation(fields: [questId], references: [id], onDelete: Cascade)
+  questions Question[]
+  attempts  QuizAttempt[]
+}
+
+model Question {
+  id     String @id @default(cuid())
+  quizId String
+
+  type          String
+  content       String
+  options       Json?
+  correctAnswer Json
+  explanation   String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  quiz Quiz @relation(fields: [quizId], references: [id], onDelete: Cascade)
+
+  @@index([quizId])
+}
+
+model QuizAttempt {
+  id     String @id @default(cuid())
+  quizId String
+  userId String
+
+  score          Int
+  correctAnswers Int
+  totalQuestions Int
+  completedAt    DateTime @default(now())
+
+  quiz Quiz @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([quizId])
+  @@index([userId])
+}
+
+model Resource {
+  id      String  @id @default(cuid())
+  userId  String
+  skillId String?
+  pathId  String?
+
+  title  String
+  url    String?
+  type   ResourceType   @default(OTHER)
+  tags   String[]       @default([])
+  status ResourceStatus @default(SAVED)
+  note   String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user  User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  skill Skill?        @relation(fields: [skillId], references: [id], onDelete: SetNull)
+  path  LearningPath? @relation(fields: [pathId], references: [id], onDelete: SetNull)
+
+  @@index([userId])
+  @@index([skillId])
+  @@index([pathId])
+}
+
+model Badge {
+  id String @id @default(cuid())
+
+  name          String      @unique
+  description   String
+  icon          String?
+  conditionType String
+  rarity        BadgeRarity @default(COMMON)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  userBadges UserBadge[]
+}
+
+model UserBadge {
+  userId     String
+  badgeId    String
+  unlockedAt DateTime @default(now())
+
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  badge Badge @relation(fields: [badgeId], references: [id], onDelete: Cascade)
+
+  @@id([userId, badgeId])
+  @@index([badgeId])
+}
+
+model ActivityLog {
+  id     String @id @default(cuid())
+  userId String
+
+  actionType ActivityActionType
+  entityType EntityType
+  entityId   String?
+  xpEarned   Int                @default(0)
+  createdAt  DateTime           @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([createdAt])
+}
+
+model Streak {
+  id     String @id @default(cuid())
+  userId String @unique
+
+  currentStreak    Int       @default(0)
+  longestStreak    Int       @default(0)
+  lastActivityDate DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model AiGeneration {
+  id     String @id @default(cuid())
+  userId String
+
+  type   AiGenerationType
+  prompt Json
+  result Json
+  status AiGenerationStatus @default(DRAFT)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
 }
