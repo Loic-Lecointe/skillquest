@@ -94,6 +94,7 @@ export const UserScalarFieldEnum = {
   emailVerified: 'emailVerified',
   image: 'image',
   username: 'username',
+  passwordHash: 'passwordHash',
   level: 'level',
   totalXp: 'totalXp',
   dailyGoalMinutes: 'dailyGoalMinutes',

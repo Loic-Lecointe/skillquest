@@ -45,6 +45,7 @@ export type UserMinAggregateOutputType = {
   emailVerified: Date | null
   image: string | null
   username: string | null
+  passwordHash: string | null
   level: number | null
   totalXp: number | null
   dailyGoalMinutes: number | null
@@ -59,6 +60,7 @@ export type UserMaxAggregateOutputType = {
   emailVerified: Date | null
   image: string | null
   username: string | null
+  passwordHash: string | null
   level: number | null
   totalXp: number | null
   dailyGoalMinutes: number | null
@@ -73,6 +75,7 @@ export type UserCountAggregateOutputType = {
   emailVerified: number
   image: number
   username: number
+  passwordHash: number
   level: number
   totalXp: number
   dailyGoalMinutes: number
@@ -101,6 +104,7 @@ export type UserMinAggregateInputType = {
   emailVerified?: true
   image?: true
   username?: true
+  passwordHash?: true
   level?: true
   totalXp?: true
   dailyGoalMinutes?: true
@@ -115,6 +119,7 @@ export type UserMaxAggregateInputType = {
   emailVerified?: true
   image?: true
   username?: true
+  passwordHash?: true
   level?: true
   totalXp?: true
   dailyGoalMinutes?: true
@@ -129,6 +134,7 @@ export type UserCountAggregateInputType = {
   emailVerified?: true
   image?: true
   username?: true
+  passwordHash?: true
   level?: true
   totalXp?: true
   dailyGoalMinutes?: true
@@ -230,6 +236,7 @@ export type UserGroupByOutputType = {
   emailVerified: Date | null
   image: string | null
   username: string | null
+  passwordHash: string | null
   level: number
   totalXp: number
   dailyGoalMinutes: number
@@ -267,6 +274,7 @@ export type UserWhereInput = {
   emailVerified?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
   image?: Prisma.StringNullableFilter<"User"> | string | null
   username?: Prisma.StringNullableFilter<"User"> | string | null
+  passwordHash?: Prisma.StringNullableFilter<"User"> | string | null
   level?: Prisma.IntFilter<"User"> | number
   totalXp?: Prisma.IntFilter<"User"> | number
   dailyGoalMinutes?: Prisma.IntFilter<"User"> | number
@@ -293,6 +301,7 @@ export type UserOrderByWithRelationInput = {
   emailVerified?: Prisma.SortOrderInput | Prisma.SortOrder
   image?: Prisma.SortOrderInput | Prisma.SortOrder
   username?: Prisma.SortOrderInput | Prisma.SortOrder
+  passwordHash?: Prisma.SortOrderInput | Prisma.SortOrder
   level?: Prisma.SortOrder
   totalXp?: Prisma.SortOrder
   dailyGoalMinutes?: Prisma.SortOrder
@@ -322,6 +331,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   name?: Prisma.StringNullableFilter<"User"> | string | null
   emailVerified?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
   image?: Prisma.StringNullableFilter<"User"> | string | null
+  passwordHash?: Prisma.StringNullableFilter<"User"> | string | null
   level?: Prisma.IntFilter<"User"> | number
   totalXp?: Prisma.IntFilter<"User"> | number
   dailyGoalMinutes?: Prisma.IntFilter<"User"> | number
@@ -348,6 +358,7 @@ export type UserOrderByWithAggregationInput = {
   emailVerified?: Prisma.SortOrderInput | Prisma.SortOrder
   image?: Prisma.SortOrderInput | Prisma.SortOrder
   username?: Prisma.SortOrderInput | Prisma.SortOrder
+  passwordHash?: Prisma.SortOrderInput | Prisma.SortOrder
   level?: Prisma.SortOrder
   totalXp?: Prisma.SortOrder
   dailyGoalMinutes?: Prisma.SortOrder
@@ -370,6 +381,7 @@ export type UserScalarWhereWithAggregatesInput = {
   emailVerified?: Prisma.DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
   image?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   username?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  passwordHash?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   level?: Prisma.IntWithAggregatesFilter<"User"> | number
   totalXp?: Prisma.IntWithAggregatesFilter<"User"> | number
   dailyGoalMinutes?: Prisma.IntWithAggregatesFilter<"User"> | number
@@ -384,6 +396,7 @@ export type UserCreateInput = {
   emailVerified?: Date | string | null
   image?: string | null
   username?: string | null
+  passwordHash?: string | null
   level?: number
   totalXp?: number
   dailyGoalMinutes?: number
@@ -410,6 +423,7 @@ export type UserUncheckedCreateInput = {
   emailVerified?: Date | string | null
   image?: string | null
   username?: string | null
+  passwordHash?: string | null
   level?: number
   totalXp?: number
   dailyGoalMinutes?: number
@@ -436,6 +450,7 @@ export type UserUpdateInput = {
   emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   username?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   level?: Prisma.IntFieldUpdateOperationsInput | number
   totalXp?: Prisma.IntFieldUpdateOperationsInput | number
   dailyGoalMinutes?: Prisma.IntFieldUpdateOperationsInput | number
@@ -462,6 +477,7 @@ export type UserUncheckedUpdateInput = {
   emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   username?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   level?: Prisma.IntFieldUpdateOperationsInput | number
   totalXp?: Prisma.IntFieldUpdateOperationsInput | number
   dailyGoalMinutes?: Prisma.IntFieldUpdateOperationsInput | number
@@ -488,6 +504,7 @@ export type UserCreateManyInput = {
   emailVerified?: Date | string | null
   image?: string | null
   username?: string | null
+  passwordHash?: string | null
   level?: number
   totalXp?: number
   dailyGoalMinutes?: number
@@ -502,6 +519,7 @@ export type UserUpdateManyMutationInput = {
   emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   username?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   level?: Prisma.IntFieldUpdateOperationsInput | number
   totalXp?: Prisma.IntFieldUpdateOperationsInput | number
   dailyGoalMinutes?: Prisma.IntFieldUpdateOperationsInput | number
@@ -516,6 +534,7 @@ export type UserUncheckedUpdateManyInput = {
   emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   username?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   level?: Prisma.IntFieldUpdateOperationsInput | number
   totalXp?: Prisma.IntFieldUpdateOperationsInput | number
   dailyGoalMinutes?: Prisma.IntFieldUpdateOperationsInput | number
@@ -530,6 +549,7 @@ export type UserCountOrderByAggregateInput = {
   emailVerified?: Prisma.SortOrder
   image?: Prisma.SortOrder
   username?: Prisma.SortOrder
+  passwordHash?: Prisma.SortOrder
   level?: Prisma.SortOrder
   totalXp?: Prisma.SortOrder
   dailyGoalMinutes?: Prisma.SortOrder
@@ -550,6 +570,7 @@ export type UserMaxOrderByAggregateInput = {
   emailVerified?: Prisma.SortOrder
   image?: Prisma.SortOrder
   username?: Prisma.SortOrder
+  passwordHash?: Prisma.SortOrder
   level?: Prisma.SortOrder
   totalXp?: Prisma.SortOrder
   dailyGoalMinutes?: Prisma.SortOrder
@@ -564,6 +585,7 @@ export type UserMinOrderByAggregateInput = {
   emailVerified?: Prisma.SortOrder
   image?: Prisma.SortOrder
   username?: Prisma.SortOrder
+  passwordHash?: Prisma.SortOrder
   level?: Prisma.SortOrder
   totalXp?: Prisma.SortOrder
   dailyGoalMinutes?: Prisma.SortOrder
@@ -781,6 +803,7 @@ export type UserCreateWithoutAccountsInput = {
   emailVerified?: Date | string | null
   image?: string | null
   username?: string | null
+  passwordHash?: string | null
   level?: number
   totalXp?: number
   dailyGoalMinutes?: number
@@ -806,6 +829,7 @@ export type UserUncheckedCreateWithoutAccountsInput = {
   emailVerified?: Date | string | null
   image?: string | null
   username?: string | null
+  passwordHash?: string | null
   level?: number
   totalXp?: number
   dailyGoalMinutes?: number
@@ -847,6 +871,7 @@ export type UserUpdateWithoutAccountsInput = {
   emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   username?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   level?: Prisma.IntFieldUpdateOperationsInput | number
   totalXp?: Prisma.IntFieldUpdateOperationsInput | number
   dailyGoalMinutes?: Prisma.IntFieldUpdateOperationsInput | number
@@ -872,6 +897,7 @@ export type UserUncheckedUpdateWithoutAccountsInput = {
   emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   username?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   level?: Prisma.IntFieldUpdateOperationsInput | number
   totalXp?: Prisma.IntFieldUpdateOperationsInput | number
   dailyGoalMinutes?: Prisma.IntFieldUpdateOperationsInput | number
@@ -897,6 +923,7 @@ export type UserCreateWithoutSessionsInput = {
   emailVerified?: Date | string | null
   image?: string | null
   username?: string | null
+  passwordHash?: string | null
   level?: number
   totalXp?: number
   dailyGoalMinutes?: number
@@ -922,6 +949,7 @@ export type UserUncheckedCreateWithoutSessionsInput = {
   emailVerified?: Date | string | null
   image?: string | null
   username?: string | null
+  passwordHash?: string | null
   level?: number
   totalXp?: number
   dailyGoalMinutes?: number
@@ -963,6 +991,7 @@ export type UserUpdateWithoutSessionsInput = {
   emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   username?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   level?: Prisma.IntFieldUpdateOperationsInput | number
   totalXp?: Prisma.IntFieldUpdateOperationsInput | number
   dailyGoalMinutes?: Prisma.IntFieldUpdateOperationsInput | number
@@ -988,6 +1017,7 @@ export type UserUncheckedUpdateWithoutSessionsInput = {
   emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   username?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   level?: Prisma.IntFieldUpdateOperationsInput | number
   totalXp?: Prisma.IntFieldUpdateOperationsInput | number
   dailyGoalMinutes?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1013,6 +1043,7 @@ export type UserCreateWithoutProfileInput = {
   emailVerified?: Date | string | null
   image?: string | null
   username?: string | null
+  passwordHash?: string | null
   level?: number
   totalXp?: number
   dailyGoalMinutes?: number
@@ -1038,6 +1069,7 @@ export type UserUncheckedCreateWithoutProfileInput = {
   emailVerified?: Date | string | null
   image?: string | null
   username?: string | null
+  passwordHash?: string | null
   level?: number
   totalXp?: number
   dailyGoalMinutes?: number
@@ -1079,6 +1111,7 @@ export type UserUpdateWithoutProfileInput = {
   emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   username?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   level?: Prisma.IntFieldUpdateOperationsInput | number
   totalXp?: Prisma.IntFieldUpdateOperationsInput | number
   dailyGoalMinutes?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1104,6 +1137,7 @@ export type UserUncheckedUpdateWithoutProfileInput = {
   emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   username?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   level?: Prisma.IntFieldUpdateOperationsInput | number
   totalXp?: Prisma.IntFieldUpdateOperationsInput | number
   dailyGoalMinutes?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1129,6 +1163,7 @@ export type UserCreateWithoutSkillsInput = {
   emailVerified?: Date | string | null
   image?: string | null
   username?: string | null
+  passwordHash?: string | null
   level?: number
   totalXp?: number
   dailyGoalMinutes?: number
@@ -1154,6 +1189,7 @@ export type UserUncheckedCreateWithoutSkillsInput = {
   emailVerified?: Date | string | null
   image?: string | null
   username?: string | null
+  passwordHash?: string | null
   level?: number
   totalXp?: number
   dailyGoalMinutes?: number
@@ -1195,6 +1231,7 @@ export type UserUpdateWithoutSkillsInput = {
   emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   username?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   level?: Prisma.IntFieldUpdateOperationsInput | number
   totalXp?: Prisma.IntFieldUpdateOperationsInput | number
   dailyGoalMinutes?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1220,6 +1257,7 @@ export type UserUncheckedUpdateWithoutSkillsInput = {
   emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   username?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   level?: Prisma.IntFieldUpdateOperationsInput | number
   totalXp?: Prisma.IntFieldUpdateOperationsInput | number
   dailyGoalMinutes?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1245,6 +1283,7 @@ export type UserCreateWithoutLearningPathsInput = {
   emailVerified?: Date | string | null
   image?: string | null
   username?: string | null
+  passwordHash?: string | null
   level?: number
   totalXp?: number
   dailyGoalMinutes?: number
@@ -1270,6 +1309,7 @@ export type UserUncheckedCreateWithoutLearningPathsInput = {
   emailVerified?: Date | string | null
   image?: string | null
   username?: string | null
+  passwordHash?: string | null
   level?: number
   totalXp?: number
   dailyGoalMinutes?: number
@@ -1311,6 +1351,7 @@ export type UserUpdateWithoutLearningPathsInput = {
   emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   username?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   level?: Prisma.IntFieldUpdateOperationsInput | number
   totalXp?: Prisma.IntFieldUpdateOperationsInput | number
   dailyGoalMinutes?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1336,6 +1377,7 @@ export type UserUncheckedUpdateWithoutLearningPathsInput = {
   emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   username?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   level?: Prisma.IntFieldUpdateOperationsInput | number
   totalXp?: Prisma.IntFieldUpdateOperationsInput | number
   dailyGoalMinutes?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1361,6 +1403,7 @@ export type UserCreateWithoutQuestsInput = {
   emailVerified?: Date | string | null
   image?: string | null
   username?: string | null
+  passwordHash?: string | null
   level?: number
   totalXp?: number
   dailyGoalMinutes?: number
@@ -1386,6 +1429,7 @@ export type UserUncheckedCreateWithoutQuestsInput = {
   emailVerified?: Date | string | null
   image?: string | null
   username?: string | null
+  passwordHash?: string | null
   level?: number
   totalXp?: number
   dailyGoalMinutes?: number
@@ -1427,6 +1471,7 @@ export type UserUpdateWithoutQuestsInput = {
   emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   username?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   level?: Prisma.IntFieldUpdateOperationsInput | number
   totalXp?: Prisma.IntFieldUpdateOperationsInput | number
   dailyGoalMinutes?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1452,6 +1497,7 @@ export type UserUncheckedUpdateWithoutQuestsInput = {
   emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   username?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   level?: Prisma.IntFieldUpdateOperationsInput | number
   totalXp?: Prisma.IntFieldUpdateOperationsInput | number
   dailyGoalMinutes?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1477,6 +1523,7 @@ export type UserCreateWithoutQuizAttemptsInput = {
   emailVerified?: Date | string | null
   image?: string | null
   username?: string | null
+  passwordHash?: string | null
   level?: number
   totalXp?: number
   dailyGoalMinutes?: number
@@ -1502,6 +1549,7 @@ export type UserUncheckedCreateWithoutQuizAttemptsInput = {
   emailVerified?: Date | string | null
   image?: string | null
   username?: string | null
+  passwordHash?: string | null
   level?: number
   totalXp?: number
   dailyGoalMinutes?: number
@@ -1543,6 +1591,7 @@ export type UserUpdateWithoutQuizAttemptsInput = {
   emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   username?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   level?: Prisma.IntFieldUpdateOperationsInput | number
   totalXp?: Prisma.IntFieldUpdateOperationsInput | number
   dailyGoalMinutes?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1568,6 +1617,7 @@ export type UserUncheckedUpdateWithoutQuizAttemptsInput = {
   emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   username?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   level?: Prisma.IntFieldUpdateOperationsInput | number
   totalXp?: Prisma.IntFieldUpdateOperationsInput | number
   dailyGoalMinutes?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1593,6 +1643,7 @@ export type UserCreateWithoutResourcesInput = {
   emailVerified?: Date | string | null
   image?: string | null
   username?: string | null
+  passwordHash?: string | null
   level?: number
   totalXp?: number
   dailyGoalMinutes?: number
@@ -1618,6 +1669,7 @@ export type UserUncheckedCreateWithoutResourcesInput = {
   emailVerified?: Date | string | null
   image?: string | null
   username?: string | null
+  passwordHash?: string | null
   level?: number
   totalXp?: number
   dailyGoalMinutes?: number
@@ -1659,6 +1711,7 @@ export type UserUpdateWithoutResourcesInput = {
   emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   username?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   level?: Prisma.IntFieldUpdateOperationsInput | number
   totalXp?: Prisma.IntFieldUpdateOperationsInput | number
   dailyGoalMinutes?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1684,6 +1737,7 @@ export type UserUncheckedUpdateWithoutResourcesInput = {
   emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   username?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   level?: Prisma.IntFieldUpdateOperationsInput | number
   totalXp?: Prisma.IntFieldUpdateOperationsInput | number
   dailyGoalMinutes?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1709,6 +1763,7 @@ export type UserCreateWithoutUserBadgesInput = {
   emailVerified?: Date | string | null
   image?: string | null
   username?: string | null
+  passwordHash?: string | null
   level?: number
   totalXp?: number
   dailyGoalMinutes?: number
@@ -1734,6 +1789,7 @@ export type UserUncheckedCreateWithoutUserBadgesInput = {
   emailVerified?: Date | string | null
   image?: string | null
   username?: string | null
+  passwordHash?: string | null
   level?: number
   totalXp?: number
   dailyGoalMinutes?: number
@@ -1775,6 +1831,7 @@ export type UserUpdateWithoutUserBadgesInput = {
   emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   username?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   level?: Prisma.IntFieldUpdateOperationsInput | number
   totalXp?: Prisma.IntFieldUpdateOperationsInput | number
   dailyGoalMinutes?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1800,6 +1857,7 @@ export type UserUncheckedUpdateWithoutUserBadgesInput = {
   emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   username?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   level?: Prisma.IntFieldUpdateOperationsInput | number
   totalXp?: Prisma.IntFieldUpdateOperationsInput | number
   dailyGoalMinutes?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1825,6 +1883,7 @@ export type UserCreateWithoutActivityLogsInput = {
   emailVerified?: Date | string | null
   image?: string | null
   username?: string | null
+  passwordHash?: string | null
   level?: number
   totalXp?: number
   dailyGoalMinutes?: number
@@ -1850,6 +1909,7 @@ export type UserUncheckedCreateWithoutActivityLogsInput = {
   emailVerified?: Date | string | null
   image?: string | null
   username?: string | null
+  passwordHash?: string | null
   level?: number
   totalXp?: number
   dailyGoalMinutes?: number
@@ -1891,6 +1951,7 @@ export type UserUpdateWithoutActivityLogsInput = {
   emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   username?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   level?: Prisma.IntFieldUpdateOperationsInput | number
   totalXp?: Prisma.IntFieldUpdateOperationsInput | number
   dailyGoalMinutes?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1916,6 +1977,7 @@ export type UserUncheckedUpdateWithoutActivityLogsInput = {
   emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   username?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   level?: Prisma.IntFieldUpdateOperationsInput | number
   totalXp?: Prisma.IntFieldUpdateOperationsInput | number
   dailyGoalMinutes?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1941,6 +2003,7 @@ export type UserCreateWithoutStreakInput = {
   emailVerified?: Date | string | null
   image?: string | null
   username?: string | null
+  passwordHash?: string | null
   level?: number
   totalXp?: number
   dailyGoalMinutes?: number
@@ -1966,6 +2029,7 @@ export type UserUncheckedCreateWithoutStreakInput = {
   emailVerified?: Date | string | null
   image?: string | null
   username?: string | null
+  passwordHash?: string | null
   level?: number
   totalXp?: number
   dailyGoalMinutes?: number
@@ -2007,6 +2071,7 @@ export type UserUpdateWithoutStreakInput = {
   emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   username?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   level?: Prisma.IntFieldUpdateOperationsInput | number
   totalXp?: Prisma.IntFieldUpdateOperationsInput | number
   dailyGoalMinutes?: Prisma.IntFieldUpdateOperationsInput | number
@@ -2032,6 +2097,7 @@ export type UserUncheckedUpdateWithoutStreakInput = {
   emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   username?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   level?: Prisma.IntFieldUpdateOperationsInput | number
   totalXp?: Prisma.IntFieldUpdateOperationsInput | number
   dailyGoalMinutes?: Prisma.IntFieldUpdateOperationsInput | number
@@ -2057,6 +2123,7 @@ export type UserCreateWithoutAiGenerationsInput = {
   emailVerified?: Date | string | null
   image?: string | null
   username?: string | null
+  passwordHash?: string | null
   level?: number
   totalXp?: number
   dailyGoalMinutes?: number
@@ -2082,6 +2149,7 @@ export type UserUncheckedCreateWithoutAiGenerationsInput = {
   emailVerified?: Date | string | null
   image?: string | null
   username?: string | null
+  passwordHash?: string | null
   level?: number
   totalXp?: number
   dailyGoalMinutes?: number
@@ -2123,6 +2191,7 @@ export type UserUpdateWithoutAiGenerationsInput = {
   emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   username?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   level?: Prisma.IntFieldUpdateOperationsInput | number
   totalXp?: Prisma.IntFieldUpdateOperationsInput | number
   dailyGoalMinutes?: Prisma.IntFieldUpdateOperationsInput | number
@@ -2148,6 +2217,7 @@ export type UserUncheckedUpdateWithoutAiGenerationsInput = {
   emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   username?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   level?: Prisma.IntFieldUpdateOperationsInput | number
   totalXp?: Prisma.IntFieldUpdateOperationsInput | number
   dailyGoalMinutes?: Prisma.IntFieldUpdateOperationsInput | number
@@ -2285,6 +2355,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   emailVerified?: boolean
   image?: boolean
   username?: boolean
+  passwordHash?: boolean
   level?: boolean
   totalXp?: boolean
   dailyGoalMinutes?: boolean
@@ -2312,6 +2383,7 @@ export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   emailVerified?: boolean
   image?: boolean
   username?: boolean
+  passwordHash?: boolean
   level?: boolean
   totalXp?: boolean
   dailyGoalMinutes?: boolean
@@ -2326,6 +2398,7 @@ export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   emailVerified?: boolean
   image?: boolean
   username?: boolean
+  passwordHash?: boolean
   level?: boolean
   totalXp?: boolean
   dailyGoalMinutes?: boolean
@@ -2340,6 +2413,7 @@ export type UserSelectScalar = {
   emailVerified?: boolean
   image?: boolean
   username?: boolean
+  passwordHash?: boolean
   level?: boolean
   totalXp?: boolean
   dailyGoalMinutes?: boolean
@@ -2347,7 +2421,7 @@ export type UserSelectScalar = {
   updatedAt?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "email" | "emailVerified" | "image" | "username" | "level" | "totalXp" | "dailyGoalMinutes" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "email" | "emailVerified" | "image" | "username" | "passwordHash" | "level" | "totalXp" | "dailyGoalMinutes" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   accounts?: boolean | Prisma.User$accountsArgs<ExtArgs>
   sessions?: boolean | Prisma.User$sessionsArgs<ExtArgs>
@@ -2389,6 +2463,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     emailVerified: Date | null
     image: string | null
     username: string | null
+    passwordHash: string | null
     level: number
     totalXp: number
     dailyGoalMinutes: number
@@ -2835,6 +2910,7 @@ export interface UserFieldRefs {
   readonly emailVerified: Prisma.FieldRef<"User", 'DateTime'>
   readonly image: Prisma.FieldRef<"User", 'String'>
   readonly username: Prisma.FieldRef<"User", 'String'>
+  readonly passwordHash: Prisma.FieldRef<"User", 'String'>
   readonly level: Prisma.FieldRef<"User", 'Int'>
   readonly totalXp: Prisma.FieldRef<"User", 'Int'>
   readonly dailyGoalMinutes: Prisma.FieldRef<"User", 'Int'>
