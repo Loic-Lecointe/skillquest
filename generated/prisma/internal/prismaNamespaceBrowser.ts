@@ -98,6 +98,7 @@ export const UserScalarFieldEnum = {
   level: 'level',
   totalXp: 'totalXp',
   dailyGoalMinutes: 'dailyGoalMinutes',
+  onboardingCompletedAt: 'onboardingCompletedAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -149,6 +150,7 @@ export const UserProfileScalarFieldEnum = {
   userId: 'userId',
   bio: 'bio',
   learningStyle: 'learningStyle',
+  learningRhythm: 'learningRhythm',
   difficulty: 'difficulty',
   theme: 'theme',
   language: 'language',

@@ -29,6 +29,7 @@ export type UserProfileMinAggregateOutputType = {
   userId: string | null
   bio: string | null
   learningStyle: $Enums.LearningStyle | null
+  learningRhythm: $Enums.LearningRhythm | null
   difficulty: $Enums.Difficulty | null
   theme: string | null
   language: string | null
@@ -42,6 +43,7 @@ export type UserProfileMaxAggregateOutputType = {
   userId: string | null
   bio: string | null
   learningStyle: $Enums.LearningStyle | null
+  learningRhythm: $Enums.LearningRhythm | null
   difficulty: $Enums.Difficulty | null
   theme: string | null
   language: string | null
@@ -55,6 +57,7 @@ export type UserProfileCountAggregateOutputType = {
   userId: number
   bio: number
   learningStyle: number
+  learningRhythm: number
   difficulty: number
   theme: number
   language: number
@@ -70,6 +73,7 @@ export type UserProfileMinAggregateInputType = {
   userId?: true
   bio?: true
   learningStyle?: true
+  learningRhythm?: true
   difficulty?: true
   theme?: true
   language?: true
@@ -83,6 +87,7 @@ export type UserProfileMaxAggregateInputType = {
   userId?: true
   bio?: true
   learningStyle?: true
+  learningRhythm?: true
   difficulty?: true
   theme?: true
   language?: true
@@ -96,6 +101,7 @@ export type UserProfileCountAggregateInputType = {
   userId?: true
   bio?: true
   learningStyle?: true
+  learningRhythm?: true
   difficulty?: true
   theme?: true
   language?: true
@@ -182,6 +188,7 @@ export type UserProfileGroupByOutputType = {
   userId: string
   bio: string | null
   learningStyle: $Enums.LearningStyle
+  learningRhythm: $Enums.LearningRhythm
   difficulty: $Enums.Difficulty
   theme: string
   language: string
@@ -216,6 +223,7 @@ export type UserProfileWhereInput = {
   userId?: Prisma.StringFilter<"UserProfile"> | string
   bio?: Prisma.StringNullableFilter<"UserProfile"> | string | null
   learningStyle?: Prisma.EnumLearningStyleFilter<"UserProfile"> | $Enums.LearningStyle
+  learningRhythm?: Prisma.EnumLearningRhythmFilter<"UserProfile"> | $Enums.LearningRhythm
   difficulty?: Prisma.EnumDifficultyFilter<"UserProfile"> | $Enums.Difficulty
   theme?: Prisma.StringFilter<"UserProfile"> | string
   language?: Prisma.StringFilter<"UserProfile"> | string
@@ -230,6 +238,7 @@ export type UserProfileOrderByWithRelationInput = {
   userId?: Prisma.SortOrder
   bio?: Prisma.SortOrderInput | Prisma.SortOrder
   learningStyle?: Prisma.SortOrder
+  learningRhythm?: Prisma.SortOrder
   difficulty?: Prisma.SortOrder
   theme?: Prisma.SortOrder
   language?: Prisma.SortOrder
@@ -247,6 +256,7 @@ export type UserProfileWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.UserProfileWhereInput | Prisma.UserProfileWhereInput[]
   bio?: Prisma.StringNullableFilter<"UserProfile"> | string | null
   learningStyle?: Prisma.EnumLearningStyleFilter<"UserProfile"> | $Enums.LearningStyle
+  learningRhythm?: Prisma.EnumLearningRhythmFilter<"UserProfile"> | $Enums.LearningRhythm
   difficulty?: Prisma.EnumDifficultyFilter<"UserProfile"> | $Enums.Difficulty
   theme?: Prisma.StringFilter<"UserProfile"> | string
   language?: Prisma.StringFilter<"UserProfile"> | string
@@ -261,6 +271,7 @@ export type UserProfileOrderByWithAggregationInput = {
   userId?: Prisma.SortOrder
   bio?: Prisma.SortOrderInput | Prisma.SortOrder
   learningStyle?: Prisma.SortOrder
+  learningRhythm?: Prisma.SortOrder
   difficulty?: Prisma.SortOrder
   theme?: Prisma.SortOrder
   language?: Prisma.SortOrder
@@ -280,6 +291,7 @@ export type UserProfileScalarWhereWithAggregatesInput = {
   userId?: Prisma.StringWithAggregatesFilter<"UserProfile"> | string
   bio?: Prisma.StringNullableWithAggregatesFilter<"UserProfile"> | string | null
   learningStyle?: Prisma.EnumLearningStyleWithAggregatesFilter<"UserProfile"> | $Enums.LearningStyle
+  learningRhythm?: Prisma.EnumLearningRhythmWithAggregatesFilter<"UserProfile"> | $Enums.LearningRhythm
   difficulty?: Prisma.EnumDifficultyWithAggregatesFilter<"UserProfile"> | $Enums.Difficulty
   theme?: Prisma.StringWithAggregatesFilter<"UserProfile"> | string
   language?: Prisma.StringWithAggregatesFilter<"UserProfile"> | string
@@ -292,6 +304,7 @@ export type UserProfileCreateInput = {
   id?: string
   bio?: string | null
   learningStyle?: $Enums.LearningStyle
+  learningRhythm?: $Enums.LearningRhythm
   difficulty?: $Enums.Difficulty
   theme?: string
   language?: string
@@ -306,6 +319,7 @@ export type UserProfileUncheckedCreateInput = {
   userId: string
   bio?: string | null
   learningStyle?: $Enums.LearningStyle
+  learningRhythm?: $Enums.LearningRhythm
   difficulty?: $Enums.Difficulty
   theme?: string
   language?: string
@@ -318,6 +332,7 @@ export type UserProfileUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   learningStyle?: Prisma.EnumLearningStyleFieldUpdateOperationsInput | $Enums.LearningStyle
+  learningRhythm?: Prisma.EnumLearningRhythmFieldUpdateOperationsInput | $Enums.LearningRhythm
   difficulty?: Prisma.EnumDifficultyFieldUpdateOperationsInput | $Enums.Difficulty
   theme?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
@@ -332,6 +347,7 @@ export type UserProfileUncheckedUpdateInput = {
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   learningStyle?: Prisma.EnumLearningStyleFieldUpdateOperationsInput | $Enums.LearningStyle
+  learningRhythm?: Prisma.EnumLearningRhythmFieldUpdateOperationsInput | $Enums.LearningRhythm
   difficulty?: Prisma.EnumDifficultyFieldUpdateOperationsInput | $Enums.Difficulty
   theme?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
@@ -345,6 +361,7 @@ export type UserProfileCreateManyInput = {
   userId: string
   bio?: string | null
   learningStyle?: $Enums.LearningStyle
+  learningRhythm?: $Enums.LearningRhythm
   difficulty?: $Enums.Difficulty
   theme?: string
   language?: string
@@ -357,6 +374,7 @@ export type UserProfileUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   learningStyle?: Prisma.EnumLearningStyleFieldUpdateOperationsInput | $Enums.LearningStyle
+  learningRhythm?: Prisma.EnumLearningRhythmFieldUpdateOperationsInput | $Enums.LearningRhythm
   difficulty?: Prisma.EnumDifficultyFieldUpdateOperationsInput | $Enums.Difficulty
   theme?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
@@ -370,6 +388,7 @@ export type UserProfileUncheckedUpdateManyInput = {
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   learningStyle?: Prisma.EnumLearningStyleFieldUpdateOperationsInput | $Enums.LearningStyle
+  learningRhythm?: Prisma.EnumLearningRhythmFieldUpdateOperationsInput | $Enums.LearningRhythm
   difficulty?: Prisma.EnumDifficultyFieldUpdateOperationsInput | $Enums.Difficulty
   theme?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
@@ -388,6 +407,7 @@ export type UserProfileCountOrderByAggregateInput = {
   userId?: Prisma.SortOrder
   bio?: Prisma.SortOrder
   learningStyle?: Prisma.SortOrder
+  learningRhythm?: Prisma.SortOrder
   difficulty?: Prisma.SortOrder
   theme?: Prisma.SortOrder
   language?: Prisma.SortOrder
@@ -401,6 +421,7 @@ export type UserProfileMaxOrderByAggregateInput = {
   userId?: Prisma.SortOrder
   bio?: Prisma.SortOrder
   learningStyle?: Prisma.SortOrder
+  learningRhythm?: Prisma.SortOrder
   difficulty?: Prisma.SortOrder
   theme?: Prisma.SortOrder
   language?: Prisma.SortOrder
@@ -414,6 +435,7 @@ export type UserProfileMinOrderByAggregateInput = {
   userId?: Prisma.SortOrder
   bio?: Prisma.SortOrder
   learningStyle?: Prisma.SortOrder
+  learningRhythm?: Prisma.SortOrder
   difficulty?: Prisma.SortOrder
   theme?: Prisma.SortOrder
   language?: Prisma.SortOrder
@@ -458,6 +480,10 @@ export type EnumLearningStyleFieldUpdateOperationsInput = {
   set?: $Enums.LearningStyle
 }
 
+export type EnumLearningRhythmFieldUpdateOperationsInput = {
+  set?: $Enums.LearningRhythm
+}
+
 export type EnumDifficultyFieldUpdateOperationsInput = {
   set?: $Enums.Difficulty
 }
@@ -466,6 +492,7 @@ export type UserProfileCreateWithoutUserInput = {
   id?: string
   bio?: string | null
   learningStyle?: $Enums.LearningStyle
+  learningRhythm?: $Enums.LearningRhythm
   difficulty?: $Enums.Difficulty
   theme?: string
   language?: string
@@ -478,6 +505,7 @@ export type UserProfileUncheckedCreateWithoutUserInput = {
   id?: string
   bio?: string | null
   learningStyle?: $Enums.LearningStyle
+  learningRhythm?: $Enums.LearningRhythm
   difficulty?: $Enums.Difficulty
   theme?: string
   language?: string
@@ -506,6 +534,7 @@ export type UserProfileUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   learningStyle?: Prisma.EnumLearningStyleFieldUpdateOperationsInput | $Enums.LearningStyle
+  learningRhythm?: Prisma.EnumLearningRhythmFieldUpdateOperationsInput | $Enums.LearningRhythm
   difficulty?: Prisma.EnumDifficultyFieldUpdateOperationsInput | $Enums.Difficulty
   theme?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
@@ -518,6 +547,7 @@ export type UserProfileUncheckedUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   learningStyle?: Prisma.EnumLearningStyleFieldUpdateOperationsInput | $Enums.LearningStyle
+  learningRhythm?: Prisma.EnumLearningRhythmFieldUpdateOperationsInput | $Enums.LearningRhythm
   difficulty?: Prisma.EnumDifficultyFieldUpdateOperationsInput | $Enums.Difficulty
   theme?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
@@ -533,6 +563,7 @@ export type UserProfileSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   userId?: boolean
   bio?: boolean
   learningStyle?: boolean
+  learningRhythm?: boolean
   difficulty?: boolean
   theme?: boolean
   language?: boolean
@@ -547,6 +578,7 @@ export type UserProfileSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
   userId?: boolean
   bio?: boolean
   learningStyle?: boolean
+  learningRhythm?: boolean
   difficulty?: boolean
   theme?: boolean
   language?: boolean
@@ -561,6 +593,7 @@ export type UserProfileSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
   userId?: boolean
   bio?: boolean
   learningStyle?: boolean
+  learningRhythm?: boolean
   difficulty?: boolean
   theme?: boolean
   language?: boolean
@@ -575,6 +608,7 @@ export type UserProfileSelectScalar = {
   userId?: boolean
   bio?: boolean
   learningStyle?: boolean
+  learningRhythm?: boolean
   difficulty?: boolean
   theme?: boolean
   language?: boolean
@@ -583,7 +617,7 @@ export type UserProfileSelectScalar = {
   updatedAt?: boolean
 }
 
-export type UserProfileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "bio" | "learningStyle" | "difficulty" | "theme" | "language" | "timezone" | "createdAt" | "updatedAt", ExtArgs["result"]["userProfile"]>
+export type UserProfileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "bio" | "learningStyle" | "learningRhythm" | "difficulty" | "theme" | "language" | "timezone" | "createdAt" | "updatedAt", ExtArgs["result"]["userProfile"]>
 export type UserProfileInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
@@ -604,6 +638,7 @@ export type $UserProfilePayload<ExtArgs extends runtime.Types.Extensions.Interna
     userId: string
     bio: string | null
     learningStyle: $Enums.LearningStyle
+    learningRhythm: $Enums.LearningRhythm
     difficulty: $Enums.Difficulty
     theme: string
     language: string
@@ -1038,6 +1073,7 @@ export interface UserProfileFieldRefs {
   readonly userId: Prisma.FieldRef<"UserProfile", 'String'>
   readonly bio: Prisma.FieldRef<"UserProfile", 'String'>
   readonly learningStyle: Prisma.FieldRef<"UserProfile", 'LearningStyle'>
+  readonly learningRhythm: Prisma.FieldRef<"UserProfile", 'LearningRhythm'>
   readonly difficulty: Prisma.FieldRef<"UserProfile", 'Difficulty'>
   readonly theme: Prisma.FieldRef<"UserProfile", 'String'>
   readonly language: Prisma.FieldRef<"UserProfile", 'String'>

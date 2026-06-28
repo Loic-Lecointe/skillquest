@@ -165,3 +165,12 @@ export const AiGenerationStatus = {
 } as const
 
 export type AiGenerationStatus = (typeof AiGenerationStatus)[keyof typeof AiGenerationStatus]
+
+
+export const LearningRhythm = {
+  RELAX: 'RELAX',
+  NORMAL: 'NORMAL',
+  INTENSIVE: 'INTENSIVE'
+} as const
+
+export type LearningRhythm = (typeof LearningRhythm)[keyof typeof LearningRhythm]
