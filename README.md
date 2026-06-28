@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SkillQuest
 
-## Getting Started
+SkillQuest est une application web full-stack d'apprentissage gamifié, personnalisé et évolutif.
 
-First, run the development server:
+L'objectif est de permettre à un utilisateur de transformer une compétence à apprendre en parcours structuré avec modules, quêtes, quiz, XP, niveaux, badges et suivi de progression.
+
+## Stack technique
+
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Prisma
+- PostgreSQL
+- Auth.js
+- Zod
+- React Hook Form
+- Vitest
+- Playwright
+
+## Lancer le projet en local
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+L'application sera disponible sur :
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+http://localhost:3000
+Version actuelle
+v0.1.0 - Initialisation du projet
+Roadmap MVP
+ Initialisation du projet
+ Configuration GitHub
+ Base de données PostgreSQL
+ Modèles Prisma
+ Authentification
+ Onboarding
+ Compétences
+ Parcours
+ Modules
+ Quêtes
+ XP et niveaux
+ Dashboard
+ Quiz
+ Ressources
+ Déploiement
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+# 4. Créer un CHANGELOG
 
-To learn more about Next.js, take a look at the following resources:
+Crée un fichier `CHANGELOG.md` :
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```md id="a20zdf"
+# Changelog
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Toutes les modifications importantes de SkillQuest seront documentées ici.
 
-## Deploy on Vercel
+## [0.1.0] - 2026-06-28
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Ajouté
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Initialisation du projet Next.js.
+- Configuration TypeScript.
+- Configuration Tailwind CSS.
+- Initialisation Prisma.
+- Création de la première page d'accueil.
+- Préparation de l'architecture de dossiers.
+- Mise en place du versionning Git.
